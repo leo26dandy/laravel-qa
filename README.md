@@ -9,4 +9,4 @@
 
 ## About Laravel
 
-This an Question & Answer Application that built with Laravel version 6. 
+This an Question & Answer Application that built with Laravel version 6 (Stackoverflow clone). 
