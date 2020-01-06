@@ -12,8 +12,12 @@
                         <div class="media">
                             <div class="media-body">
                                 <h4 class="my-0">
-                                    {{ $question->title }}
+                                    <a href="{{ $question->url }}">{{ $question->title }}</a>
                                 </h4>
+                                <p class="lead">
+                                    Asked <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                                    at <small class="text-muted">{{ $question->created_date }}</small>
+                                </p>
                                 <p class="my-0">
                                     {{ Str::limit($question->body, 250) }}
                                 </p>
