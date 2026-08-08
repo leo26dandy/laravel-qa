@@ -1,12 +1,21 @@
 {
-    "name": "laravel/laravel",
+    "name": "leo26dandy/laravel-qa",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "A small Q&A (Stack-Overflow-style) application built with Laravel 11.",
     "keywords": [
-        "framework",
-        "laravel"
+        "laravel",
+        "q-and-a",
+        "forum",
+        "learning-project"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Leo Dandy",
+            "email": "hello@leo-rio.com",
+            "homepage": "https://github.com/leo26dandy"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.2",

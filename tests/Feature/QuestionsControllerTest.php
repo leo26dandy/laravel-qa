@@ -45,14 +45,33 @@ class QuestionsControllerTest extends TestCase
         $response->assertSee('Unique title marker');
     }
 
-    public function test_guest_can_view_create_form()
+    public function test_guest_redirected_from_create_form()
     {
-        // Current app has NO auth middleware on QuestionsController.
-        // Store would crash for a guest (calls $request->user()->questions()),
-        // but the form itself is public. Encoding actual behavior for the
-        // upgrade regression net; auth-guarding is out of scope here.
         $response = $this->get('/questions/create');
+        $response->assertRedirect('/login');
+    }
+
+    public function test_guest_redirected_from_store()
+    {
+        $response = $this->post('/questions', ['title' => 't', 'body' => 'b']);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_guest_redirected_from_edit_form()
+    {
+        $user = $this->makeUser();
+        $question = $this->makeQuestion($user);
+        $response = $this->get('/questions/' . $question->id . '/edit');
+        $response->assertRedirect('/login');
+    }
+
+    public function test_guest_can_view_show()
+    {
+        $user = $this->makeUser();
+        $question = $this->makeQuestion($user, ['title' => 'Show marker title']);
+        $response = $this->get('/questions/' . $question->id);
         $response->assertStatus(200);
+        $response->assertSee('Show marker title');
     }
 
     public function test_authed_user_can_view_create_form()
