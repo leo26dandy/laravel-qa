@@ -21,7 +21,7 @@ class CreateQuestionsTable extends Migration
             $table->unsignedBigInteger('views')->default(0);
             $table->unsignedBigInteger('answers')->default(0);
             $table->bigInteger('votes')->default(0);
-            $table->unsignedBigInteger('best_asnwer_id')->nullable();
+            $table->unsignedBigInteger('best_answer_id')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
